@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">The War</string>
+    <string name="language_choose">Please choose a language</string>
+    <string name="game_title">THE WAR</string>
+    <string name="start_game">START GAME</string>
+    <string name="help">HELP</string>
+    <string name="credits">CREDITS</string>
+    <string name="quit">QUIT</string>
+    <string name="todo" translatable="false">TODO</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wojna</string>
+    <string name="language_choose">Proszę wybrać język</string>
+    <string name="game_title">WOJNA</string>
+    <string name="start_game">ROZPOCZNIJ GRĘ</string>
+    <string name="help">POMOC</string>
+    <string name="credits">O AUTORZE</string>
+    <string name="quit">WYJŚCIE</string>
+</resources>
