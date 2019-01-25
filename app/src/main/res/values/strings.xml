@@ -7,4 +7,9 @@
     <string name="credits">CREDITS</string>
     <string name="quit">QUIT</string>
     <string name="todo" translatable="false">TODO</string>
+    <string name="quit_game">Are you sure you want to quit the game?</string>
+    <string name="yes_quit">YES</string>
+    <string name="no_quit">NO</string>
+    <string name="author_rights">Author: Michał Kotfica \n© All rights reserved</string>
+    <string name="back">BACK</string>
 </resources>

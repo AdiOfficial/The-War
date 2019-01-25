@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/cloth"
-    tools:context=".LanguageChoice"
-    tools:ignore="Overdraw">
+    tools:context=".LanguageChoice">
 
     <TextView
         android:id="@+id/pleaseChooseLang"
@@ -27,20 +26,26 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="300dp"
-        app:srcCompat="@drawable/en"
-        android:contentDescription="@string/todo" />
+        android:layout_marginBottom="330dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/en" />
 
     <ImageView
         android:id="@+id/langPol"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="280dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="300dp"
-        app:srcCompat="@drawable/pl"
-        android:contentDescription="@string/todo" />
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="330dp"
+        android:layout_toEndOf="@+id/langEn"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/pl" />
 
 </RelativeLayout>

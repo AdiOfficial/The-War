@@ -7,4 +7,9 @@
     <string name="help">POMOC</string>
     <string name="credits">O AUTORZE</string>
     <string name="quit">WYJŚCIE</string>
+    <string name="quit_game">Czy na pewno chcesz zakończyć grę?</string>
+    <string name="yes_quit">TAK</string>
+    <string name="no_quit">NIE</string>
+    <string name="author_rights">Autor: Michał Kotfica \n© Wszelkie prawa zastrzeżone</string>
+    <string name="back">POWRÓT</string>
 </resources>
