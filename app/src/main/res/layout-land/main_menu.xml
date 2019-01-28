@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/cloth"
-    tools:context=".MainMenuActivity">
+    tools:context=".LanguageChoice">
 
     <ImageView
         android:id="@+id/playingCards"
@@ -13,10 +13,12 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="568dp"
-        android:layout_marginTop="25dp"
-        app:srcCompat="@drawable/playingcards"
-        android:contentDescription="@string/todo" />
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/playingcards" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,11 +26,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="200dp"
         android:text="@string/game_title"
         android:textColor="@color/gold_text"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/playingCards"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/startGameButton"
@@ -36,11 +40,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/buttonshape"
         android:text="@string/start_game"
-        android:textColor="@color/gold_text" />
+        android:textColor="@color/gold_text"
+        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/helpButton"
@@ -49,12 +56,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="255dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="140dp"
         android:background="@drawable/buttonshape"
         android:text="@string/help"
-        android:textColor="@color/gold_text" />
+        android:textColor="@color/gold_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/creditsButton"
@@ -63,12 +71,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="412dp"
-        android:layout_marginTop="155dp"
-        android:layout_marginEnd="139dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/buttonshape"
         android:text="@string/credits"
-        android:textColor="@color/gold_text" />
+        android:textColor="@color/gold_text"
+        app:layout_constraintEnd_toStartOf="@+id/quitButton"
+        app:layout_constraintHorizontal_bias="0.704"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startGameButton" />
 
     <Button
         android:id="@+id/quitButton"
@@ -78,12 +89,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="412dp"
-        android:layout_marginTop="255dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="140dp"
         android:background="@drawable/buttonshape"
         android:text="@string/quit"
-        android:textColor="@color/gold_text" />
+        android:textColor="@color/gold_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

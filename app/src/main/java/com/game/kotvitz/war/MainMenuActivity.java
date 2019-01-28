@@ -18,7 +18,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.main_menu);
         Button creditsButton = findViewById(R.id.creditsButton);
         final Intent creditsActivity = new Intent(this, CreditsAcitvity.class);
-        creditsButton.setOnClickListener(new View.OnClickListener() {
+        creditsButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(creditsActivity);
