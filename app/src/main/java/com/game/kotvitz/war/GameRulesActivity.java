@@ -2,16 +2,21 @@ package com.game.kotvitz.war;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 
-public class CreditsAcitvity extends AppCompatActivity {
+import com.uncopt.android.widget.text.justify.JustifiedTextView;
+
+public class GameRulesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credits);
-        Button backButton = findViewById(R.id.backButtonCredits);
+        setContentView(R.layout.activity_game_rules);
+        JustifiedTextView rulesText = findViewById(R.id.rulesText);
+        rulesText.setMovementMethod(new ScrollingMovementMethod());
+        Button backButton = findViewById(R.id.backButtonRules);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

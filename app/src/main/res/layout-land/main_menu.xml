@@ -44,13 +44,13 @@
         android:background="@drawable/buttonshape"
         android:text="@string/start_game"
         android:textColor="@color/gold_text"
-        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintEnd_toStartOf="@+id/gameRulesButton"
         app:layout_constraintHorizontal_bias="0.678"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/helpButton"
+        android:id="@+id/gameRulesButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -59,7 +59,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="140dp"
         android:background="@drawable/buttonshape"
-        android:text="@string/help"
+        android:text="@string/game_rules"
         android:textColor="@color/gold_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,6 +95,6 @@
         android:text="@string/quit"
         android:textColor="@color/gold_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
+        app:layout_constraintTop_toBottomOf="@+id/gameRulesButton" />
 
 </android.support.constraint.ConstraintLayout>

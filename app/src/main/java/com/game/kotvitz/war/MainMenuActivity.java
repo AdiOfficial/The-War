@@ -19,6 +19,14 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
+        Button gameRulesButton = findViewById(R.id.gameRulesButton);
+        final Intent gameRulesActivity = new Intent(this, GameRulesActivity.class);
+        gameRulesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(gameRulesActivity);
+            }
+        });
         Button creditsButton = findViewById(R.id.creditsButton);
         final Intent creditsActivity = new Intent(this, CreditsAcitvity.class);
         creditsButton.setOnClickListener( new View.OnClickListener() {

@@ -3,7 +3,7 @@
     <string name="language_choose">Please choose a language</string>
     <string name="game_title">THE WAR</string>
     <string name="start_game">START GAME</string>
-    <string name="help">HELP</string>
+    <string name="game_rules">GAME RULES</string>
     <string name="credits">CREDITS</string>
     <string name="quit">QUIT</string>
     <string name="todo" translatable="false">TODO</string>
@@ -11,5 +11,17 @@
     <string name="yes_quit">YES</string>
     <string name="no_quit">NO</string>
     <string name="author_rights">Author: Michał Kotfica \n© All rights reserved</string>
+    <string name="rules_content">\t\tThe deck of cards is divided into two parts, then each player gets one part.
+        The first and the second player simultaneously draw one card and compare their values.
+        The player with the higher card value picks up the cards and places them underneath his deck.
+        If the cards have the same value (e.g.: queen vs. queen), the war is starting.
+        During the war, you should uncover one card and place it on your uncovered cards (pattern to the top),
+        then draw the next card, put on the covered cards and then they are compared.
+        The higher value card wins, and the winner of the war receives all cards used in the war.
+        Repeat this step if you can not find a winner again during the war.\n\n
+        \t\tThe one who first takes away all the cards from the opponent wins. Collected cards are put into the bottom
+        of the deck and can later be used many times, which is why the game can take a very long time.
+        However, you can stop it at any time. In this case, the winner is the player with more cards.
+    </string>
     <string name="back">BACK</string>
 </resources>

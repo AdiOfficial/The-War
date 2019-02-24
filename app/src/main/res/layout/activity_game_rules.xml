@@ -7,7 +7,7 @@
     android:background="@drawable/cloth">
 
     <Button
-        android:id="@+id/backButtonCredits"
+        android:id="@+id/backButtonRules"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -22,20 +22,21 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/creditsText"
-        android:layout_width="373dp"
-        android:layout_height="wrap_content"
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
+        android:id="@+id/rulesText"
+        android:layout_width="383dp"
+        android:layout_height="510dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:ems="10"
         android:importantForAutofill="no"
-        android:text="@string/author_rights"
+        android:scrollbars="vertical"
+        android:text="@string/rules_content"
         android:textColor="@color/gold_text"
-        android:textSize="32sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

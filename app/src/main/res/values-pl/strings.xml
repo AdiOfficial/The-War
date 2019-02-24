@@ -4,12 +4,23 @@
     <string name="language_choose">Proszę wybrać język</string>
     <string name="game_title">WOJNA</string>
     <string name="start_game">ROZPOCZNIJ GRĘ</string>
-    <string name="help">POMOC</string>
+    <string name="game_rules">ZASADY GRY</string>
     <string name="credits">O AUTORZE</string>
     <string name="quit">WYJŚCIE</string>
     <string name="quit_game">Czy na pewno chcesz zakończyć grę?</string>
     <string name="yes_quit">TAK</string>
     <string name="no_quit">NIE</string>
     <string name="author_rights">Autor: Michał Kotfica \n© Wszelkie prawa zastrzeżone</string>
+    <string name="rules_content">\t\tTalia kart jest dzielona na dwie części, następnie każdy gracz dostaje po jednej części.
+        Pierwszy i drugi gracz równocześnie wykładają po jednej karcie i porównują ich wartości.
+        Gracz mający kartę o wyższej wartości odbiera karty i kładzie je pod spodem swojej talii.
+        Jeśli karty mają taką samą wartość (np.: dama na damę), rozpoczyna się wojna.
+        Podczas wojny należy odkryć po jednej karcie, położyć je koszulkami do góry na swoich kartach odkrytych,
+        a następnie wyciągnąć następną kartę, położyć odkryte na zakrytych kartach i wówczas są one porównywane.
+        Karta o wyższej wartości wygrywa, a zwycięzca wojny odbiera wszystkie karty wykorzystane w wojnie.
+        Czynność tą należy powtórzyć, jeśli w okresie wojny znowu nie można wyłonić zwycięzcy.\n\n
+        \t\tWygrywa ten, kto pierwszy zabierze wszystkie karty przeciwnikowi. Zebrane karty są przekładane pod spód talii
+        i mogą one później zostać wykorzystane wielokrotnie, dlatego gra może trwać bardzo długo. Można jednak ją przerwać
+        w dowolnym momencie, w takim wypadku zwycięzcą zostaje gracz z większą ilością kart.</string>
     <string name="back">POWRÓT</string>
 </resources>
