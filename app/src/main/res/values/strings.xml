@@ -24,4 +24,8 @@
         However, you can stop it at any time. In this case, the winner is the player with more cards.
     </string>
     <string name="back">BACK</string>
+    <string name="player_1_label">Player 1:</string>
+    <string name="player_2_label">Player 2:</string>
+    <string name="cards">Cards:</string>
+    <string name="end_game">End the game</string>
 </resources>

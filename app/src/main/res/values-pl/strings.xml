@@ -23,4 +23,8 @@
         i mogą one później zostać wykorzystane wielokrotnie, dlatego gra może trwać bardzo długo. Można jednak ją przerwać
         w dowolnym momencie, w takim wypadku zwycięzcą zostaje gracz z większą ilością kart.</string>
     <string name="back">POWRÓT</string>
+    <string name="player_1_label">Gracz 1:</string>
+    <string name="player_2_label">Gracz 2:</string>
+    <string name="cards">Karty:</string>
+    <string name="end_game">Zakończ grę</string>
 </resources>

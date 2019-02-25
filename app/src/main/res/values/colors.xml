@@ -9,4 +9,5 @@
     <color name="end_color">#271E1E</color>
     <color name="light_startColor">#DFA7A7</color>
     <color name="dark_startColor">#826363</color>
+    <color name="bar_text_color">#FFFFFF</color>
 </resources>
