@@ -5,8 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-
-import com.uncopt.android.widget.text.justify.JustifiedTextView;
+import android.widget.TextView;
 
 public class GameRulesActivity extends AppCompatActivity {
 
@@ -14,7 +13,7 @@ public class GameRulesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_rules);
-        JustifiedTextView rulesText = findViewById(R.id.rulesText);
+        TextView rulesText = findViewById(R.id.rulesText);
         rulesText.setMovementMethod(new ScrollingMovementMethod());
         Button backButton = findViewById(R.id.backButtonRules);
         backButton.setOnClickListener(new View.OnClickListener() {

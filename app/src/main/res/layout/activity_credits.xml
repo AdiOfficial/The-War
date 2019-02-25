@@ -24,15 +24,12 @@
 
     <TextView
         android:id="@+id/creditsText"
-        android:layout_width="373dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="300dp"
-        android:layout_marginEnd="15dp"
         android:ems="10"
-        android:importantForAutofill="no"
         android:text="@string/author_rights"
         android:textColor="@color/gold_text"
         android:textSize="32sp"
@@ -41,8 +38,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints"
-        tools:targetApi="o" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
