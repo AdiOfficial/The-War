@@ -1,14 +1,17 @@
 package com.game.kotvitz.war;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 
-public class LanguageChoice extends AppCompatActivity {
+import java.util.Locale;
 
-    LocaleManager localeManager = new LocaleManager();
+public class LanguageChoice extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,7 @@ public class LanguageChoice extends AppCompatActivity {
         langEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                localeManager.setLocale("en-us", mainMenu, getResources());
+                setLocale("en-us", mainMenu, getResources());
                 startActivity(mainMenu);
             }
         });
@@ -27,7 +30,7 @@ public class LanguageChoice extends AppCompatActivity {
         langPol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                localeManager.setLocale("pl", mainMenu, getResources());
+                setLocale("pl", mainMenu, getResources());
                 startActivity(mainMenu);
             }
         });
@@ -36,5 +39,14 @@ public class LanguageChoice extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
+    }
+
+    public void setLocale(String localeName, Intent intent, Resources res) {
+        Locale myLocale = new Locale(localeName);
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        intent.putExtra("lang", localeName);
     }
 }

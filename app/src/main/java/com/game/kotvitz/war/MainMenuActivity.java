@@ -1,7 +1,6 @@
 package com.game.kotvitz.war;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +11,6 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 
 public class MainMenuActivity extends AppCompatActivity {
-
-    LocaleManager localeManager = new LocaleManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +77,5 @@ public class MainMenuActivity extends AppCompatActivity {
                 popup.dismiss();
             }
         });
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        Intent mainMenu = getIntent();
-        localeManager.setLocaleOnConfigurationChanged(mainMenu, getBaseContext());
     }
 }
