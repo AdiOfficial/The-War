@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,4 +14,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#721313</item>
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
 </resources>

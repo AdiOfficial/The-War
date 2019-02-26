@@ -3,6 +3,7 @@ package com.game.kotvitz.war;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -16,6 +17,8 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
+        ScreenDesigner.callFullScreenMode(getWindow());
+        //mp.start();
         Button startGameButton = findViewById(R.id.startGameButton);
         final Intent gameActivity = new Intent(this, GameActivity.class);
         startGameButton.setOnClickListener(new View.OnClickListener() {
@@ -32,12 +35,12 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(gameRulesActivity);
             }
         });
-        Button creditsButton = findViewById(R.id.creditsButton);
-        final Intent creditsActivity = new Intent(this, CreditsAcitvity.class);
-        creditsButton.setOnClickListener( new View.OnClickListener() {
+        Button optionsButton = findViewById(R.id.optionsButton);
+        final Intent optionsActivity = new Intent(this, OptionsAcitvity.class);
+        optionsButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(creditsActivity);
+                startActivity(optionsActivity);
             }
         });
         Button quitButton = findViewById(R.id.quitButton);

@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class CreditsAcitvity extends AppCompatActivity {
+public class OptionsAcitvity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credits);
-        Button backButton = findViewById(R.id.backButtonCredits);
+        setContentView(R.layout.activity_options);
+        ScreenDesigner.callFullScreenMode(getWindow());
+        Button backButton = findViewById(R.id.backButtonOptions);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

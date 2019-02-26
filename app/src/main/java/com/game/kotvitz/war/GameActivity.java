@@ -14,6 +14,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        ScreenDesigner.callFullScreenMode(getWindow());
         Toolbar gameToolbar = findViewById(R.id.gameToolbar);
         setSupportActionBar(gameToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);

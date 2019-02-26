@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GameActivity">
     <item
+        android:id="@+id/restare_game"
+        android:title="@string/restart_game"
+        android:icon="@drawable/ic_replay_black_24dp"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/end_game"
         android:title="@string/end_game"
         android:icon="@drawable/ic_close_black_24dp"

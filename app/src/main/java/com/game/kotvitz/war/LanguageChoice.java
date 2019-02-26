@@ -17,6 +17,7 @@ public class LanguageChoice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.language_choice);
+        ScreenDesigner.callFullScreenMode(getWindow());
         final ImageView langEn = findViewById(R.id.langEn);
         final Intent mainMenu = new Intent(this, MainMenuActivity.class);
         langEn.setOnClickListener(new View.OnClickListener() {

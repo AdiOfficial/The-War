@@ -4,13 +4,12 @@
     <string name="game_title">THE WAR</string>
     <string name="start_game">START GAME</string>
     <string name="game_rules">GAME RULES</string>
-    <string name="credits">CREDITS</string>
+    <string name="options">OPTIONS</string>
     <string name="quit">QUIT</string>
     <string name="todo" translatable="false">TODO</string>
     <string name="quit_game">Are you sure you want to quit the game?</string>
     <string name="yes_quit">YES</string>
     <string name="no_quit">NO</string>
-    <string name="author_rights">Author: Michał Kotfica \n© All rights reserved</string>
     <string name="rules_content">\t\tThe deck of cards is divided into two parts, then each player gets one part.
         The first and the second player simultaneously draw one card and compare their values.
         The player with the higher card value picks up the cards and places them underneath his deck.
@@ -24,8 +23,17 @@
         However, you can stop it at any time. In this case, the winner is the player with more cards.
     </string>
     <string name="back">BACK</string>
-    <string name="player_1_label">Player 1:</string>
-    <string name="player_2_label">Player 2:</string>
     <string name="cards">Cards:</string>
     <string name="end_game">End the game</string>
+    <string name="background_music">Background music</string>
+    <string name="sounds">Sounds</string>
+    <string name="english">English</string>
+    <string name="polski">Polski</string>
+    <string name="langGroupHeader">Language:</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="restart_game">Restart the game</string>
+    <string name="background_music_is_on">Background music is on.</string>
+    <string name="background_music_is_off">Background music is off.</string>
+    <string name="sounds_on">The sounds in the game have been turned on.</string>
+    <string name="sounds_off">The sounds in the game have been muted.</string>
 </resources>
