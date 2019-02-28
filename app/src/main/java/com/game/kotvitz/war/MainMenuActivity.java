@@ -3,7 +3,6 @@ package com.game.kotvitz.war;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -58,10 +57,10 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void displayQuitPopup() {
-        View layout = getLayoutInflater().inflate(R.layout.acitvity_quit_popup,null);
+        View layout = getLayoutInflater().inflate(R.layout.quit_popup,null);
         final PopupWindow popup = new PopupWindow(this);
         popup.setContentView(layout);
-        popup.setFocusable(true);
+        popup.setFocusable(false);
         popup.setWidth(864);
         popup.setHeight(538);
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);

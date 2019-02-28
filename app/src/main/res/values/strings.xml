@@ -36,4 +36,10 @@
     <string name="background_music_is_off">Background music is off.</string>
     <string name="sounds_on">The sounds in the game have been turned on.</string>
     <string name="sounds_off">The sounds in the game have been muted.</string>
+    <string name="want_to_play_with">Choose who you want to play with:</string>
+    <string name="another_player">PLAY WITH ANOTHER PLAYER</string>
+    <string name="with_android">PLAY WITH ANDROID</string>
+    <string name="enter_a_first_player_name">Enter a first player name:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="enter_a_second_player_name">Enter a second player name:</string>
 </resources>
