@@ -55,6 +55,8 @@
         android:checked="true"
         android:text="@string/sounds"
         android:textColor="@color/gold_text"
+        android:textOn="@string/sounds_on"
+        android:textOff="@string/sounds_off"
         android:theme="@style/AppSwitch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"

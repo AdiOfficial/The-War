@@ -18,6 +18,10 @@ import java.util.Objects;
 public class GameActivity extends AppCompatActivity {
 
     private boolean anotherPlayerIsChosen;
+    private EditText firstPlayerName;
+    private EditText secondPlayerName;
+    private TextView player1Name;
+    private TextView player2Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +65,13 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 playWithPopup.dismiss();
                 anotherPlayerIsChosen = false;
-                TextView player2Name = findViewById(R.id.player2Name);
+                player2Name = findViewById(R.id.player2Name);
                 player2Name.setText("ANDROID");
                 displayChooseFirstPlayerPopup();
             }
         });
         playWithPopup.setView(dialogView);
+        playWithPopup.setCancelable(false);
         playWithPopup.setCanceledOnTouchOutside(false);
         playWithPopup.show();
     }
@@ -75,19 +80,25 @@ public class GameActivity extends AppCompatActivity {
         final AlertDialog chooseFrstPlrPopup = new AlertDialog.Builder(this).create();
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.choose_first_player_popup, null);
-        final EditText firstPlayerName = dialogView.findViewById(R.id.first_player_name);
+        firstPlayerName = dialogView.findViewById(R.id.first_player_name);
         Button sumbitButton = dialogView.findViewById(R.id.buttonSubmit);
         sumbitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView player1Name = findViewById(R.id.player1Name);
-                player1Name.setText(firstPlayerName.getText());
-                chooseFrstPlrPopup.dismiss();
-                if (anotherPlayerIsChosen)
-                    displayChooseSecondPlayerPopup();
+                boolean nameIsValid = NameValidation.validateName(firstPlayerName.getText().toString());
+                if (nameIsValid) {
+                    player1Name = findViewById(R.id.player1Name);
+                    player1Name.setText(firstPlayerName.getText());
+                    chooseFrstPlrPopup.dismiss();
+                    if (anotherPlayerIsChosen)
+                        displayChooseSecondPlayerPopup();
+                } else {
+                    firstPlayerName.setError(getString(R.string.player_name_error));
+                }
             }
         });
         chooseFrstPlrPopup.setView(dialogView);
+        chooseFrstPlrPopup.setCancelable(false);
         chooseFrstPlrPopup.setCanceledOnTouchOutside(false);
         chooseFrstPlrPopup.show();
     }
@@ -96,17 +107,23 @@ public class GameActivity extends AppCompatActivity {
         final AlertDialog chooseScndPlrPopup = new AlertDialog.Builder(this).create();
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.choose_second_player_popup, null);
-        final EditText secondPlayerName = dialogView.findViewById(R.id.second_player_name);
+        secondPlayerName = dialogView.findViewById(R.id.second_player_name);
         Button sumbitButton = dialogView.findViewById(R.id.buttonSubmit2);
         sumbitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView player2Name = findViewById(R.id.player2Name);
-                player2Name.setText(secondPlayerName.getText());
-                chooseScndPlrPopup.dismiss();
+                boolean nameIsValid = NameValidation.validateName(secondPlayerName.getText().toString());
+                if (nameIsValid) {
+                    player2Name = findViewById(R.id.player2Name);
+                    player2Name.setText(secondPlayerName.getText());
+                    chooseScndPlrPopup.dismiss();
+                } else {
+                    secondPlayerName.setError(getString(R.string.player_name_error));
+                }
             }
         });
         chooseScndPlrPopup.setView(dialogView);
+        chooseScndPlrPopup.setCancelable(false);
         chooseScndPlrPopup.setCanceledOnTouchOutside(false);
         chooseScndPlrPopup.show();
     }
