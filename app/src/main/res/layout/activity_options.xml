@@ -88,7 +88,8 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/dark_red"
             android:text="@string/english"
-            android:textColor="@color/gold_text" />
+            android:textColor="@color/gold_text"
+            android:onClick="onRadioButtonClicked"/>
 
         <RadioButton
             android:id="@+id/pl_lang"
@@ -96,7 +97,8 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/dark_red"
             android:text="@string/polski"
-            android:textColor="@color/gold_text" />
+            android:textColor="@color/gold_text"
+            android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
     <Button
