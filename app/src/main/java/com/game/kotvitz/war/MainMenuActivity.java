@@ -1,14 +1,12 @@
 package com.game.kotvitz.war;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupWindow;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -19,27 +17,24 @@ public class MainMenuActivity extends AppCompatActivity {
         ScreenDesigner.callFullScreenMode(getWindow());
         //mp.start();
         Button startGameButton = findViewById(R.id.startGameButton);
-        final Intent gameActivity = new Intent(this, GameActivity.class);
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(gameActivity);
+                startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
             }
         });
         Button gameRulesButton = findViewById(R.id.gameRulesButton);
-        final Intent gameRulesActivity = new Intent(this, GameRulesActivity.class);
         gameRulesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(gameRulesActivity);
+                startActivity(new Intent(MainMenuActivity.this, GameRulesActivity.class));
             }
         });
         Button optionsButton = findViewById(R.id.optionsButton);
-        final Intent optionsActivity = new Intent(this, OptionsAcitvity.class);
-        optionsButton.setOnClickListener( new View.OnClickListener() {
+        optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(optionsActivity);
+                startActivity(new Intent(MainMenuActivity.this, OptionsAcitvity.class));
             }
         });
         Button quitButton = findViewById(R.id.quitButton);
@@ -57,15 +52,10 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void displayQuitPopup() {
-        View layout = getLayoutInflater().inflate(R.layout.quit_popup,null);
-        final PopupWindow popup = new PopupWindow(this);
-        popup.setContentView(layout);
-        popup.setFocusable(false);
-        popup.setWidth(864);
-        popup.setHeight(538);
-        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
-        popup.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-        Button yesButton = layout.findViewById(R.id.yesButton);
+        final AlertDialog popup = new AlertDialog.Builder(this).create();
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.quit_popup, null);
+        Button yesButton = dialogView.findViewById(R.id.yesButton);
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,11 +63,16 @@ public class MainMenuActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
-        Button noButton = layout.findViewById(R.id.noButton);
+        Button noButton = dialogView.findViewById(R.id.noButton);
         noButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View layout) {
+            @Override
+            public void onClick(View v) {
                 popup.dismiss();
             }
         });
+        popup.setView(dialogView);
+        popup.setCancelable(false);
+        popup.setCanceledOnTouchOutside(false);
+        popup.show();
     }
 }

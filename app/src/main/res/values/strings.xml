@@ -7,7 +7,7 @@
     <string name="options">OPTIONS</string>
     <string name="quit">QUIT</string>
     <string name="todo" translatable="false">TODO</string>
-    <string name="quit_game">Are you sure you want to quit the game?</string>
+    <string name="quit_game">\tAre you sure you want\n\tto quit the game?</string>
     <string name="yes_quit">YES</string>
     <string name="no_quit">NO</string>
     <string name="rules_content">\t\tThe deck of cards is divided into two parts, then each player gets one part.

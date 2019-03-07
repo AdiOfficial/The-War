@@ -7,7 +7,7 @@
     <string name="game_rules">ZASADY GRY</string>
     <string name="options">OPCJE</string>
     <string name="quit">WYJŚCIE</string>
-    <string name="quit_game">Czy na pewno chcesz zakończyć grę?</string>
+    <string name="quit_game">\tCzy na pewno chcesz\n\t\t\t\t\twyjść z gry?</string>
     <string name="yes_quit">TAK</string>
     <string name="no_quit">NIE</string>
     <string name="rules_content">\t\tTalia kart jest dzielona na dwie części, następnie każdy gracz dostaje po jednej części.
