@@ -36,10 +36,11 @@
     <string name="sounds_on">Włączono dźwięki w grze.</string>
     <string name="sounds_off">Wyciszono dźwięki w grze.</string>
     <string name="want_to_play_with">Wybierz, z kim chcesz grać:</string>
-    <string name="another_player">GRAJ Z INNYM GRACZEM</string>
+    <string name="another_player">GRAJ Z \nINNYM GRACZEM</string>
     <string name="with_android">GRAJ Z ANDROIDEM</string>
     <string name="enter_a_first_player_name">Wpisz imię pierwszego gracza:</string>
     <string name="submit">ZATWIERDŹ</string>
     <string name="enter_a_second_player_name">Wpisz imię drugiego gracza:</string>
     <string name="player_name_error">Imię gracza musi zawierać przynajmniej jedną literę i składać się od 1 do 12 znaków.</string>
+    <string name="finish_the_game">\tCzy na pewno chcesz\nzakończyć rozgrywkę?</string>
 </resources>

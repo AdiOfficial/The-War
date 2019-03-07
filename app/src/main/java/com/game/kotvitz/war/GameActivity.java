@@ -1,5 +1,6 @@
 package com.game.kotvitz.war;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,10 +48,23 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.restart_game:
+                return true;
+            case R.id.end_game:
+                finishGamePopup();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void displayPlayWithPopup() {
         final AlertDialog playWithPopup = new AlertDialog.Builder(this).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.play_with_popup,null);
+        View dialogView = inflater.inflate(R.layout.play_with_popup, null);
         Button playWithPlayerButton = dialogView.findViewById(R.id.playWithPlayerButton);
         playWithPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,5 +141,30 @@ public class GameActivity extends AppCompatActivity {
         chooseScndPlrPopup.setCancelable(false);
         chooseScndPlrPopup.setCanceledOnTouchOutside(false);
         chooseScndPlrPopup.show();
+    }
+
+    private void finishGamePopup() {
+        final AlertDialog playWithPopup = new AlertDialog.Builder(this).create();
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.finish_game_popup, null);
+        Button yesButton = dialogView.findViewById(R.id.yesButton2);
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(GameActivity.this, MainMenuActivity.class));
+            }
+        });
+        Button noButton = dialogView.findViewById(R.id.noButton2);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playWithPopup.dismiss();
+            }
+        });
+        playWithPopup.setView(dialogView);
+        playWithPopup.setCancelable(false);
+        playWithPopup.setCanceledOnTouchOutside(false);
+        playWithPopup.show();
     }
 }
