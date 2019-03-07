@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/player1Name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
@@ -24,7 +24,6 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,24 +59,24 @@
 
         <TextView
             android:id="@+id/player2Name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="132dp"
-            android:layout_marginEnd="131dp"
+            android:layout_marginStart="145dp"
+            android:layout_marginEnd="8dp"
             android:text=""
             android:textColor="@color/bar_text_color"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.103"
             app:layout_constraintStart_toEndOf="@+id/player1Name"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/player2Cards"
             android:layout_width="46dp"
             android:layout_height="20dp"
-            android:layout_marginStart="160dp"
+            android:layout_marginStart="145dp"
             android:text="@string/cards"
             android:textColor="@color/bar_text_color"
             android:textSize="15sp"

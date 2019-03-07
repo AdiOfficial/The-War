@@ -41,6 +41,6 @@
     <string name="enter_a_first_player_name">Wpisz imię pierwszego gracza:</string>
     <string name="submit">ZATWIERDŹ</string>
     <string name="enter_a_second_player_name">Wpisz imię drugiego gracza:</string>
-    <string name="player_name_error">Imię gracza musi zawierać przynajmniej jedną literę i składać się od 1 do 12 znaków.</string>
+    <string name="player_name_error">Imię gracza musi zawierać przynajmniej jedną literę i składać się od 1 do 10 znaków.</string>
     <string name="finish_the_game">\tCzy na pewno chcesz\nzakończyć rozgrywkę?</string>
 </resources>
