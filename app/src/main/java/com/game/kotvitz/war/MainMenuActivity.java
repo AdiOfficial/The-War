@@ -1,6 +1,7 @@
 package com.game.kotvitz.war;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,16 +11,19 @@ import android.widget.Button;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+    private GameMedia gm = new GameMedia();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
         ScreenDesigner.callFullScreenMode(getWindow());
-        //mp.start();
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         Button startGameButton = findViewById(R.id.startGameButton);
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
             }
         });
@@ -27,6 +31,7 @@ public class MainMenuActivity extends AppCompatActivity {
         gameRulesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, GameRulesActivity.class));
             }
         });
@@ -34,6 +39,7 @@ public class MainMenuActivity extends AppCompatActivity {
         optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, OptionsAcitvity.class));
             }
         });
@@ -41,6 +47,7 @@ public class MainMenuActivity extends AppCompatActivity {
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 displayQuitPopup();
             }
         });
@@ -59,6 +66,7 @@ public class MainMenuActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 finishAffinity();
                 System.exit(0);
             }
@@ -67,6 +75,7 @@ public class MainMenuActivity extends AppCompatActivity {
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gm.playClickSound(getBaseContext());
                 popup.dismiss();
             }
         });

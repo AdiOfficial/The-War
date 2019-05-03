@@ -1,6 +1,7 @@
 package com.game.kotvitz.war;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
@@ -24,12 +25,14 @@ public class GameActivity extends AppCompatActivity {
     private EditText secondPlayerName;
     private TextView player1Name;
     private TextView player2Name;
+    private GameMedia gameMedia = new GameMedia();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ScreenDesigner.callFullScreenMode(getWindow());
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         Toolbar gameToolbar = findViewById(R.id.gameToolbar);
         setSupportActionBar(gameToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -52,8 +55,10 @@ public class GameActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.restart_game:
+                gameMedia.playClickSound(getBaseContext());
                 return true;
             case R.id.end_game:
+                gameMedia.playClickSound(getBaseContext());
                 finishGamePopup();
                 return true;
             default:
@@ -69,6 +74,7 @@ public class GameActivity extends AppCompatActivity {
         playWithPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 playWithPopup.dismiss();
                 anotherPlayerIsChosen = true;
                 displayChooseFirstPlayerPopup();
@@ -78,6 +84,7 @@ public class GameActivity extends AppCompatActivity {
         playWithAndroidButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 playWithPopup.dismiss();
                 anotherPlayerIsChosen = false;
                 player2Name = findViewById(R.id.player2Name);
@@ -100,6 +107,7 @@ public class GameActivity extends AppCompatActivity {
         sumbitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 boolean nameIsValid = NameValidation.validateName(firstPlayerName.getText().toString());
                 if (nameIsValid) {
                     player1Name = findViewById(R.id.player1Name);
@@ -127,6 +135,7 @@ public class GameActivity extends AppCompatActivity {
         sumbitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 boolean nameIsValid = NameValidation.validateName(secondPlayerName.getText().toString());
                 if (nameIsValid) {
                     player2Name = findViewById(R.id.player2Name);
@@ -151,6 +160,7 @@ public class GameActivity extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 finish();
                 startActivity(new Intent(GameActivity.this, MainMenuActivity.class));
             }
@@ -159,6 +169,7 @@ public class GameActivity extends AppCompatActivity {
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameMedia.playClickSound(getBaseContext());
                 playWithPopup.dismiss();
             }
         });
