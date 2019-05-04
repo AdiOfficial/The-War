@@ -43,4 +43,5 @@
     <string name="enter_a_second_player_name">Wpisz imię drugiego gracza:</string>
     <string name="player_name_error">Imię gracza musi zawierać przynajmniej jedną literę i składać się od 1 do 10 znaków.</string>
     <string name="finish_the_game">\tCzy na pewno chcesz\nzakończyć rozgrywkę?</string>
+    <string name="restart_the_game">\tCzy na pewno chcesz\nrozpocząć grę od nowa?</string>
 </resources>

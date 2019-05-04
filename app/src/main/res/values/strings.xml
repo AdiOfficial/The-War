@@ -44,4 +44,5 @@
     <string name="enter_a_second_player_name">Enter a second player name:</string>
     <string name="player_name_error">The player\'s name must contain at least one letter and from 1 to 10 characters.</string>
     <string name="finish_the_game">\tAre you sure you want\n\tto finish the game?</string>
+    <string name="restart_the_game">\tAre you sure you want\n\tto restart the game?</string>
 </resources>

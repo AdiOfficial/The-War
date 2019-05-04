@@ -2,16 +2,15 @@ package com.game.kotvitz.war;
 
 import android.content.Intent;
 import android.media.AudioManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-    private GameMedia gm = new GameMedia();
+    private GameMedia gameMedia = new GameMedia();
+    private PopupCreator popupCreator = new PopupCreator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class MainMenuActivity extends AppCompatActivity {
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
+                gameMedia.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
             }
         });
@@ -31,7 +30,7 @@ public class MainMenuActivity extends AppCompatActivity {
         gameRulesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
+                gameMedia.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, GameRulesActivity.class));
             }
         });
@@ -39,7 +38,7 @@ public class MainMenuActivity extends AppCompatActivity {
         optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
+                gameMedia.playClickSound(getBaseContext());
                 startActivity(new Intent(MainMenuActivity.this, OptionsAcitvity.class));
             }
         });
@@ -47,8 +46,8 @@ public class MainMenuActivity extends AppCompatActivity {
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
-                displayQuitPopup();
+                gameMedia.playClickSound(getBaseContext());
+                popupCreator.displayQuitPopup(MainMenuActivity.this);
             }
         });
     }
@@ -56,32 +55,5 @@ public class MainMenuActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
-    }
-
-    private void displayQuitPopup() {
-        final AlertDialog popup = new AlertDialog.Builder(this).create();
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.quit_popup, null);
-        Button yesButton = dialogView.findViewById(R.id.yesButton);
-        yesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
-                finishAffinity();
-                System.exit(0);
-            }
-        });
-        Button noButton = dialogView.findViewById(R.id.noButton);
-        noButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gm.playClickSound(getBaseContext());
-                popup.dismiss();
-            }
-        });
-        popup.setView(dialogView);
-        popup.setCancelable(false);
-        popup.setCanceledOnTouchOutside(false);
-        popup.show();
     }
 }
