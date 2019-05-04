@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cloth"
+    android:background="@drawable/cards"
     tools:context=".LanguageChoice">
 
     <TextView
@@ -17,6 +17,10 @@
         android:layout_marginBottom="8dp"
         android:text="@string/language_choose"
         android:textColor="@color/gold_text"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
