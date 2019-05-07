@@ -8,13 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Objects;
 
 public class GameActivity extends AppCompatActivity {
 
-    private PopupCreator popupCreator = new PopupCreator();
+    private DialogCreator dialogCreator = new DialogCreator();
     private GameMedia gameMedia = new GameMedia();
+    private TextView player1Name;
+    private TextView player2Name;
+    private ImageView card2;
+    private ImageView card3;
+    private GameCreator gameCreator = new GameCreator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +31,13 @@ public class GameActivity extends AppCompatActivity {
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         Toolbar gameToolbar = findViewById(R.id.gameToolbar);
         setSupportActionBar(gameToolbar);
+        player1Name = findViewById(R.id.player1Name);
+        player2Name = findViewById(R.id.player2Name);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                popupCreator.displayPlayWithPopup(GameActivity.this);
+                dialogCreator.displayPlayWithPopup(GameActivity.this);
             }
         }, 100L);
     }
@@ -45,11 +54,11 @@ public class GameActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.restart_game:
                 gameMedia.playClickSound(getBaseContext());
-                popupCreator.restartGamePopup(GameActivity.this);
+                dialogCreator.restartGamePopup(GameActivity.this);
                 return true;
             case R.id.end_game:
                 gameMedia.playClickSound(getBaseContext());
-                popupCreator.finishGamePopup(GameActivity.this);
+                dialogCreator.finishGamePopup(GameActivity.this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

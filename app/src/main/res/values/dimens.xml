@@ -4,4 +4,6 @@
     <dimen name="quitMsg_marginStart">20dp</dimen>
     <dimen name="switch2_marginStart">8dp</dimen>
     <dimen name="finish_game_marginStart">10dp</dimen>
+    <dimen name="card_width">71dp</dimen>
+    <dimen name="card_height">109dp</dimen>
 </resources>

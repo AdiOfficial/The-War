@@ -2,16 +2,18 @@ package com.game.kotvitz.war;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class PopupCreator {
+import com.game.kotvitz.war.model.Rank;
+
+public class DialogCreator {
 
     private boolean anotherPlayerIsChosen;
     private EditText firstPlayerName;
@@ -19,6 +21,7 @@ public class PopupCreator {
     private TextView player1Name;
     private TextView player2Name;
     private GameMedia gameMedia = new GameMedia();
+    private GameCreator gameCreator = new GameCreator();
 
     public void displayQuitPopup(final Context context) {
         final AlertDialog popup = new AlertDialog.Builder(context).create();
@@ -96,6 +99,8 @@ public class PopupCreator {
                     chooseFrstPlrPopup.dismiss();
                     if (anotherPlayerIsChosen)
                         displayChooseSecondPlayerPopup(context);
+                    else
+                        gameCreator.prepareBoard(context);
                 } else {
                     firstPlayerName.setError(context.getString(R.string.player_name_error));
                 }
@@ -112,6 +117,12 @@ public class PopupCreator {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogView = inflater.inflate(R.layout.choose_second_player_popup, null);
         secondPlayerName = dialogView.findViewById(R.id.second_player_name);
+        chooseScndPlrPopup.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                gameCreator.prepareBoard(context);
+            }
+        });
         Button sumbitButton = dialogView.findViewById(R.id.buttonSubmit2);
         sumbitButton.setOnClickListener(new View.OnClickListener() {
             @Override

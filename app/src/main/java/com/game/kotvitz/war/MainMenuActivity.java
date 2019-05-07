@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainMenuActivity extends AppCompatActivity {
 
     private GameMedia gameMedia = new GameMedia();
-    private PopupCreator popupCreator = new PopupCreator();
+    private DialogCreator dialogCreator = new DialogCreator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gameMedia.playClickSound(getBaseContext());
-                popupCreator.displayQuitPopup(MainMenuActivity.this);
+                dialogCreator.displayQuitPopup(MainMenuActivity.this);
             }
         });
     }
