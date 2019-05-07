@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.Switch;
+
+import com.game.kotvitz.war.GameMedia;
+import com.game.kotvitz.war.LocaleManager;
+import com.game.kotvitz.war.R;
+import com.game.kotvitz.war.ScreenDesigner;
 
 import java.util.Locale;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.creator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.game.kotvitz.war.GameMedia;
+import com.game.kotvitz.war.NameValidation;
+import com.game.kotvitz.war.R;
+import com.game.kotvitz.war.activity.MainMenuActivity;
 
 public class DialogCreator {
 

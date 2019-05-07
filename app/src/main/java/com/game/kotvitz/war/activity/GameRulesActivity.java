@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.activity;
 
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.game.kotvitz.war.GameMedia;
+import com.game.kotvitz.war.R;
+import com.game.kotvitz.war.ScreenDesigner;
 
 public class GameRulesActivity extends AppCompatActivity {
 

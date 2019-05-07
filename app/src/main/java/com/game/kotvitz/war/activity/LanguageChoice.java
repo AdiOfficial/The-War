@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.activity;
 
 import android.content.Intent;
 import android.media.AudioManager;
@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.game.kotvitz.war.GameMedia;
+import com.game.kotvitz.war.LocaleManager;
+import com.game.kotvitz.war.R;
+import com.game.kotvitz.war.ScreenDesigner;
 
 
 public class LanguageChoice extends AppCompatActivity {

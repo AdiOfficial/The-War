@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.creator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.game.kotvitz.war.R;
 import com.game.kotvitz.war.model.Card;
 
 import java.io.BufferedInputStream;

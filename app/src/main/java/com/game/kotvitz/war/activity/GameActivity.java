@@ -1,4 +1,4 @@
-package com.game.kotvitz.war;
+package com.game.kotvitz.war.activity;
 
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -10,6 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.game.kotvitz.war.creator.DialogCreator;
+import com.game.kotvitz.war.creator.GameCreator;
+import com.game.kotvitz.war.GameMedia;
+import com.game.kotvitz.war.R;
+import com.game.kotvitz.war.ScreenDesigner;
 
 import java.util.Objects;
 

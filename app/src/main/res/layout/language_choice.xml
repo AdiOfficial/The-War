@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cards"
-    tools:context=".LanguageChoice">
+    tools:context=".activity.LanguageChoice">
 
     <TextView
         android:id="@+id/pleaseChooseLang"
