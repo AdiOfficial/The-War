@@ -1,5 +1,8 @@
 package com.game.kotvitz.war.model;
 
+import android.view.MotionEvent;
+import android.view.View;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -44,6 +47,22 @@ public class Card {
 
     public void setSuit(Suit suit) {
         this.suit = suit;
+    }
+
+    public ArrayList<Card> getPlayer1Deck() {
+        return player1Deck;
+    }
+
+    public void setPlayer1Deck(ArrayList<Card> player1Deck) {
+        this.player1Deck = player1Deck;
+    }
+
+    public ArrayList<Card> getPlayer2Deck() {
+        return player2Deck;
+    }
+
+    public void setPlayer2Deck(ArrayList<Card> player2Deck) {
+        this.player2Deck = player2Deck;
     }
 
     public Rank getPlayer1Rank() {

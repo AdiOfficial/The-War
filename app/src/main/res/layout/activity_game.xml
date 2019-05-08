@@ -9,26 +9,59 @@
 
     <include
         android:id="@+id/gameToolbar"
-        layout="@layout/game_toolbar"/>
+        layout="@layout/game_toolbar"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="319dp" />
 
     <ImageView
         android:id="@+id/player1Card"
         android:layout_width="@dimen/card_width"
         android:layout_height="@dimen/card_height"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="388dp"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/player2Card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/player2Card"
         android:layout_width="@dimen/card_width"
         android:layout_height="@dimen/card_height"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         android:layout_weight="1"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/player1TakenCard"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/player2TakenCard"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:orientation="vertical" />
+    </TableRow>
+
 
 </android.support.constraint.ConstraintLayout>
