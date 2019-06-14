@@ -66,19 +66,23 @@ class Card {
         player2Rank = player2Deck!![0].rank
         player2Suit = player2Deck!![0].suit
 
-        if (player1Rank!!.id > player2Rank!!.id) {
-            player1Deck!!.add(player1Deck!![0])
-            player1Deck!!.removeAt(0)
-            player1Deck!!.add(player2Deck!![0])
-            player2Deck!!.removeAt(0)
-        } else if (player1Rank!!.id < player2Rank!!.id) {
-            player2Deck!!.add(player2Deck!![0])
-            player2Deck!!.removeAt(0)
-            player2Deck!!.add(player1Deck!![0])
-            player1Deck!!.removeAt(0)
-        } else {
-            warIsStarting = true
-            startWarForFirstTime()
+        when {
+            player1Rank!!.id > player2Rank!!.id -> {
+                player1Deck!!.add(player1Deck!![0])
+                player1Deck!!.removeAt(0)
+                player1Deck!!.add(player2Deck!![0])
+                player2Deck!!.removeAt(0)
+            }
+            player1Rank!!.id < player2Rank!!.id -> {
+                player2Deck!!.add(player2Deck!![0])
+                player2Deck!!.removeAt(0)
+                player2Deck!!.add(player1Deck!![0])
+                player1Deck!!.removeAt(0)
+            }
+            else -> {
+                warIsStarting = true
+                startWarForFirstTime()
+            }
         }
 
     }
