@@ -21,7 +21,7 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
-        ScreenDesigner.callFullScreenMode(getWindow());
+        ScreenDesigner.INSTANCE.callFullScreenMode(getWindow());
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         Button startGameButton = findViewById(R.id.startGameButton);
         startGameButton.setOnClickListener(new View.OnClickListener() {

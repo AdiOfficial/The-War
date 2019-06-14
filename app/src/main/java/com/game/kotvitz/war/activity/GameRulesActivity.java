@@ -20,7 +20,7 @@ public class GameRulesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_rules);
-        ScreenDesigner.callFullScreenMode(getWindow());
+        ScreenDesigner.INSTANCE.callFullScreenMode(getWindow());
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         TextView rulesText = findViewById(R.id.rulesText);
         rulesText.setMovementMethod(new ScrollingMovementMethod());

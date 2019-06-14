@@ -32,7 +32,7 @@ public class OptionsAcitvity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
-        ScreenDesigner.callFullScreenMode(getWindow());
+        ScreenDesigner.INSTANCE.callFullScreenMode(getWindow());
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         soundsSwitch = findViewById(R.id.soundsSwitch);
@@ -71,7 +71,7 @@ public class OptionsAcitvity extends AppCompatActivity {
             case R.id.pl_lang:
                 if (checked) {
                     Intent intent = new Intent(this, MainMenuActivity.class);
-                    LocaleManager.setLocale("pl", intent, getResources());
+                    LocaleManager.INSTANCE.setLocale("pl", intent, getResources());
                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |
                             Intent.FLAG_ACTIVITY_NEW_TASK));
                 }
@@ -79,7 +79,7 @@ public class OptionsAcitvity extends AppCompatActivity {
             case R.id.eng_lang:
                 if (checked) {
                     Intent intent = new Intent(this, MainMenuActivity.class);
-                    LocaleManager.setLocale("en-us", intent, getResources());
+                    LocaleManager.INSTANCE.setLocale("en-us", intent, getResources());
                     startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |
                             Intent.FLAG_ACTIVITY_NEW_TASK));
                 }

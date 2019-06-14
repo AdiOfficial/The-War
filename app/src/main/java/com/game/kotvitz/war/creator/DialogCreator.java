@@ -95,7 +95,7 @@ public class DialogCreator {
             @Override
             public void onClick(View v) {
                 gameMedia.playClickSound(context);
-                boolean nameIsValid = NameValidation.validateName(firstPlayerName.getText().toString());
+                boolean nameIsValid = NameValidation.INSTANCE.validateName(firstPlayerName.getText().toString());
                 if (nameIsValid) {
                     player1Name = ((Activity) context).findViewById(R.id.player1Name);
                     player1Name.setText(firstPlayerName.getText());
@@ -131,7 +131,7 @@ public class DialogCreator {
             @Override
             public void onClick(View v) {
                 gameMedia.playClickSound(context);
-                boolean nameIsValid = NameValidation.validateName(secondPlayerName.getText().toString());
+                boolean nameIsValid = NameValidation.INSTANCE.validateName(secondPlayerName.getText().toString());
                 if (nameIsValid) {
                     player2Name = ((Activity) context).findViewById(R.id.player2Name);
                     player2Name.setText(secondPlayerName.getText());

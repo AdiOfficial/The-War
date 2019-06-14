@@ -21,7 +21,7 @@ public class LanguageChoice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.language_choice);
-        ScreenDesigner.callFullScreenMode(getWindow());
+        ScreenDesigner.INSTANCE.callFullScreenMode(getWindow());
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         final ImageView langEn = findViewById(R.id.langEn);
         final Intent mainMenu = new Intent(this, MainMenuActivity.class);
@@ -29,7 +29,7 @@ public class LanguageChoice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gameMedia.playClickSound(getBaseContext());
-                LocaleManager.setLocale("en-us", mainMenu, getResources());
+                LocaleManager.INSTANCE.setLocale("en-us", mainMenu, getResources());
                 startActivity(mainMenu);
             }
         });
@@ -38,7 +38,7 @@ public class LanguageChoice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gameMedia.playClickSound(getBaseContext());
-                LocaleManager.setLocale("pl", mainMenu, getResources());
+                LocaleManager.INSTANCE.setLocale("pl", mainMenu, getResources());
                 startActivity(mainMenu);
             }
         });

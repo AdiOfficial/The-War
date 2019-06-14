@@ -15,7 +15,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-        ScreenDesigner.callFullScreenMode(getWindow());
+        ScreenDesigner.INSTANCE.callFullScreenMode(getWindow());
         final Intent languageChoice = new Intent(this, LanguageChoice.class);
         handler.postDelayed(new Runnable() {
             @Override
