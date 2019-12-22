@@ -32,6 +32,11 @@ dependencies {
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+configurations {
+    compile.exclude group: 'org.jetbrains', module: 'annotations'
+}
+
 repositories {
     mavenCentral()
 }
