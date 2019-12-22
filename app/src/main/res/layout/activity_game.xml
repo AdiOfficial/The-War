@@ -17,51 +17,51 @@
         android:id="@+id/player1Card"
         android:layout_width="@dimen/card_width"
         android:layout_height="@dimen/card_height"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="76dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginBottom="284dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/player2Card"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/player2Card"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/player2Card"
         android:layout_width="@dimen/card_width"
         android:layout_height="@dimen/card_height"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="284dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TableRow
-        android:id="@+id/tableRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <Button
+        android:id="@+id/player1MoveButton"
+        android:layout_width="@dimen/playerMoveButton_width"
+        android:layout_height="@dimen/playerMoveButton_height"
+        android:layout_marginStart="60dp"
+        android:background="@drawable/buttonshape"
+        android:text=""
+        android:textColor="@color/gold_text"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1Card"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <Button
+        android:id="@+id/player2MoveButton"
+        android:layout_width="@dimen/playerMoveButton_width"
+        android:layout_height="@dimen/playerMoveButton_height"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/buttonshape"
+        android:text=""
+        android:textColor="@color/gold_text"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/player1TakenCard"
-            android:layout_width="100dp"
-            android:layout_height="200dp"
-            android:orientation="vertical" />
-
-        <LinearLayout
-            android:id="@+id/player2TakenCard"
-            android:layout_width="100dp"
-            android:layout_height="200dp"
-            android:orientation="vertical" />
-    </TableRow>
-
+        app:layout_constraintTop_toBottomOf="@+id/player2Card"
+        app:layout_constraintVertical_bias="0.502" />
 
 </android.support.constraint.ConstraintLayout>

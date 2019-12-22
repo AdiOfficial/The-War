@@ -6,4 +6,6 @@
     <dimen name="finish_game_marginStart">10dp</dimen>
     <dimen name="card_width">71dp</dimen>
     <dimen name="card_height">109dp</dimen>
+    <dimen name="playerMoveButton_width">112dp</dimen>
+    <dimen name="playerMoveButton_height">55dp</dimen>
 </resources>

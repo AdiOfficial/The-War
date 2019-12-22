@@ -12,6 +12,7 @@ import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.NameValidation
 import com.game.kotvitz.war.R
 import com.game.kotvitz.war.activity.MainMenuActivity
+import kotlin.system.exitProcess
 
 class DialogCreator {
 
@@ -31,7 +32,7 @@ class DialogCreator {
         yesButton.setOnClickListener {
             gameMedia.playClickSound(context)
             (context as Activity).finishAffinity()
-            System.exit(0)
+            exitProcess(0)
         }
         val noButton = dialogView.findViewById<Button>(R.id.noButton)
         noButton.setOnClickListener {
@@ -75,8 +76,8 @@ class DialogCreator {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val dialogView = inflater.inflate(R.layout.choose_first_player_popup, null)
         firstPlayerName = dialogView.findViewById(R.id.first_player_name)
-        val sumbitButton = dialogView.findViewById<Button>(R.id.buttonSubmit)
-        sumbitButton.setOnClickListener {
+        val submitButton = dialogView.findViewById<Button>(R.id.buttonSubmit)
+        submitButton.setOnClickListener {
             gameMedia.playClickSound(context)
             val nameIsValid = NameValidation.validateName(firstPlayerName!!.text.toString())
             if (nameIsValid) {
@@ -87,9 +88,8 @@ class DialogCreator {
                     displayChooseSecondPlayerPopup(context)
                 else
                     gameCreator.prepareBoard(context)
-            } else {
+            } else
                 firstPlayerName!!.error = context.getString(R.string.player_name_error)
-            }
         }
         chooseFrstPlrPopup.setView(dialogView)
         chooseFrstPlrPopup.setCancelable(false)
