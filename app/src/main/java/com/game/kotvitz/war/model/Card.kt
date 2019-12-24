@@ -7,22 +7,18 @@ class Card {
     private var wholeDeck: ArrayList<Card> = ArrayList()
     var player1Deck: ArrayList<Card>? = null
     var player2Deck: ArrayList<Card>? = null
-    private var player1Rank: Rank? = null
-    private var player2Rank: Rank? = null
-    private var player1Suit: Suit? = null
-    private var player2Suit: Suit? = null
-    private var player1WarRank1: Rank? = null
-    private var player1WarRank2: Rank? = null
-    private var player1WarRank3: Rank? = null
-    private var player2WarRank1: Rank? = null
-    private var player2WarRank2: Rank? = null
-    private var player2WarRank3: Rank? = null
-    private var player1WarSuit1: Suit? = null
-    private var player2WarSuit1: Suit? = null
-    private var player1WarSuit2: Suit? = null
-    private var player2WarSuit2: Suit? = null
-    private var player1WarSuit3: Suit? = null
-    private var player2WarSuit3: Suit? = null
+    var player1Rank: Rank? = null
+    var player2Rank: Rank? = null
+    var player1Suit: Suit? = null
+    var player2Suit: Suit? = null
+    var player1WarRank1: Rank? = null
+    var player1WarRank2: Rank? = null
+    var player2WarRank1: Rank? = null
+    var player2WarRank2: Rank? = null
+    var player1WarSuit1: Suit? = null
+    var player2WarSuit1: Suit? = null
+    var player1WarSuit2: Suit? = null
+    var player2WarSuit2: Suit? = null
     private var warIsStarting: Boolean = false
     private var rankId: Int = 0
 
@@ -37,14 +33,20 @@ class Card {
         warIsStarting = false
     }
 
+    val player1Count: Int
+        get() = player1Deck!!.size
+
+    val player2Count: Int
+        get() = player2Deck!!.size
+
     private fun createDeck() {
         val numberOfRanks = Rank.values().size
         for (i in 0 until numberOfRanks) {
             rankId = i + 2
-            val clubCards = Card(Rank.getRank(rankId), Suit.CLUBS)
-            val diamondCard = Card(Rank.getRank(rankId), Suit.DIAMONDS)
-            val heartCard = Card(Rank.getRank(rankId), Suit.HEARTS)
-            val spadeCard = Card(Rank.getRank(rankId), Suit.SPADES)
+            val clubCards = Card(Rank.getRank(rankId), Suit.C)
+            val diamondCard = Card(Rank.getRank(rankId), Suit.D)
+            val heartCard = Card(Rank.getRank(rankId), Suit.H)
+            val spadeCard = Card(Rank.getRank(rankId), Suit.S)
 
             wholeDeck.add(clubCards)
             wholeDeck.add(diamondCard)
@@ -60,12 +62,17 @@ class Card {
         player2Deck = ArrayList(wholeDeck.subList(26, 52))
     }
 
-    fun compareCards() {
-        player1Rank = player1Deck!![0].rank
-        player1Suit = player1Deck!![0].suit
-        player2Rank = player2Deck!![0].rank
-        player2Suit = player2Deck!![0].suit
+    fun drawCardForFirstPlayer(cardId: Int) {
+        player1Rank = player1Deck!![cardId].rank
+        player1Suit = player1Deck!![cardId].suit
+    }
 
+    fun drawCardForSecondPlayer(cardId: Int) {
+        player2Rank = player2Deck!![cardId].rank
+        player2Suit = player2Deck!![cardId].suit
+    }
+
+    fun compareCards() {
         when {
             player1Rank!!.id > player2Rank!!.id -> {
                 player1Deck!!.add(player1Deck!![0])
@@ -137,48 +144,6 @@ class Card {
 
         when {
             player1WarRank2!!.id > player2WarRank2!!.id -> {
-                player1Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-                player1Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-                player1Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-                player1Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-                player1Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-                player1Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-            }
-            player1WarRank2!!.id < player2WarRank2!!.id -> {
-                player2Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-                player2Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-                player2Deck!!.add(player1Deck!![0])
-                player1Deck!!.removeAt(0)
-                player2Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-                player2Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-                player2Deck!!.add(player2Deck!![0])
-                player2Deck!!.removeAt(0)
-            }
-            else -> {
-                warIsStarting = true
-                startWarForThirdTime()
-            }
-        }
-    }
-
-    private fun startWarForThirdTime() {
-        player1WarRank3 = player1Deck!![6].rank
-        player1WarSuit3 = player1Deck!![6].suit
-        player2WarRank3 = player2Deck!![6].rank
-        player2WarSuit3 = player2Deck!![6].suit
-
-        when {
-            player1WarRank3!!.id > player2WarRank3!!.id -> {
                 player1Deck!!.add(player2Deck!![0])
                 player2Deck!!.removeAt(0)
                 player1Deck!!.add(player2Deck!![0])
