@@ -16,7 +16,6 @@ import kotlin.system.exitProcess
 
 class DialogCreator {
 
-    private var anotherPlayerIsChosen: Boolean = false
     private var firstPlayerName: EditText? = null
     private var secondPlayerName: EditText? = null
     private var player1Name: TextView? = null
@@ -45,33 +44,7 @@ class DialogCreator {
         popup.show()
     }
 
-    fun displayPlayWithPopup(context: Context) {
-        val playWithPopup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.play_with_popup, null)
-        val playWithPlayerButton = dialogView.findViewById<Button>(R.id.playWithPlayerButton)
-        playWithPlayerButton.setOnClickListener {
-            gameMedia.playClickSound(context)
-            playWithPopup.dismiss()
-            anotherPlayerIsChosen = true
-            displayChooseFirstPlayerPopup(context)
-        }
-        val playWithAndroidButton = dialogView.findViewById<Button>(R.id.playWithAndroidButton)
-        playWithAndroidButton.setOnClickListener {
-            gameMedia.playClickSound(context)
-            playWithPopup.dismiss()
-            anotherPlayerIsChosen = false
-            player2Name = (context as Activity).findViewById(R.id.player2Name)
-            player2Name!!.text = "ANDROID"
-            displayChooseFirstPlayerPopup(context)
-        }
-        playWithPopup.setView(dialogView)
-        playWithPopup.setCancelable(false)
-        playWithPopup.setCanceledOnTouchOutside(false)
-        playWithPopup.show()
-    }
-
-    private fun displayChooseFirstPlayerPopup(context: Context) {
+    fun displayChooseFirstPlayerPopup(context: Context) {
         val chooseFrstPlrPopup = AlertDialog.Builder(context).create()
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val dialogView = inflater.inflate(R.layout.choose_first_player_popup, null)
@@ -84,10 +57,7 @@ class DialogCreator {
                 player1Name = (context as Activity).findViewById(R.id.player1Name)
                 player1Name!!.text = firstPlayerName!!.text
                 chooseFrstPlrPopup.dismiss()
-                if (anotherPlayerIsChosen)
-                    displayChooseSecondPlayerPopup(context)
-                else
-                    gameCreator.prepareBoard(context)
+                displayChooseSecondPlayerPopup(context)
             } else
                 firstPlayerName!!.error = context.getString(R.string.player_name_error)
         }
@@ -111,6 +81,7 @@ class DialogCreator {
                 player2Name = (context as Activity).findViewById(R.id.player2Name)
                 player2Name!!.text = secondPlayerName!!.text
                 chooseScndPlrPopup.dismiss()
+                gameCreator.prepareBoard(context)
             } else {
                 secondPlayerName!!.error = context.getString(R.string.player_name_error)
             }

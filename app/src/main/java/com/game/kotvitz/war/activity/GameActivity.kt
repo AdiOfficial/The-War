@@ -32,7 +32,7 @@ class GameActivity : AppCompatActivity() {
         player1Name = findViewById(R.id.player1Name)
         player2Name = findViewById(R.id.player2Name)
         Objects.requireNonNull<ActionBar>(supportActionBar).setDisplayShowTitleEnabled(false)
-        Handler().postDelayed({ dialogCreator.displayPlayWithPopup(this@GameActivity) }, 100L)
+        Handler().postDelayed({ dialogCreator.displayChooseFirstPlayerPopup(this@GameActivity) }, 100L)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
