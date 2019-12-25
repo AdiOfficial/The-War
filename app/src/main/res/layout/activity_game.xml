@@ -15,7 +15,8 @@
         android:layout_marginBottom="60dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/player2WarCard1"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/p2WarCard2Desc" />
 
     <ImageView
         android:id="@+id/player1WarCard2"
@@ -27,7 +28,8 @@
         app:layout_constraintBottom_toTopOf="@+id/player1WarCard1"
         app:layout_constraintEnd_toStartOf="@+id/player2WarCard2"
         app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/p1WarCard2Desc" />
 
     <ImageView
         android:id="@+id/player2WarCard1"
@@ -37,7 +39,8 @@
         android:layout_marginBottom="60dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/player2Card"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/p2WarCard1Desc" />
 
     <ImageView
         android:id="@+id/player1WarCard1"
@@ -49,7 +52,8 @@
         app:layout_constraintBottom_toTopOf="@+id/player1Card"
         app:layout_constraintEnd_toStartOf="@+id/player2WarCard1"
         app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/p1WarCard1Desc" />
 
     <include
         android:id="@+id/gameToolbar"
@@ -68,7 +72,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player2Card"
         app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/p1CardDesc" />
 
     <ImageView
         android:id="@+id/player2Card"
@@ -78,7 +83,8 @@
         android:layout_marginBottom="164dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/p2CardDesc" />
 
     <Button
         android:id="@+id/player1drawButton"

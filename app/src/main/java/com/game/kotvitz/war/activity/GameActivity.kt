@@ -8,13 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.TextView
 import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.R
 import com.game.kotvitz.war.ScreenDesigner
 import com.game.kotvitz.war.creator.DialogCreator
-import com.game.kotvitz.war.creator.GameCreator
 import java.util.*
 
 class GameActivity : AppCompatActivity() {
@@ -23,9 +21,6 @@ class GameActivity : AppCompatActivity() {
     private val gameMedia = GameMedia()
     private var player1Name: TextView? = null
     private var player2Name: TextView? = null
-    private val card2: ImageView? = null
-    private val card3: ImageView? = null
-    private val gameCreator = GameCreator()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

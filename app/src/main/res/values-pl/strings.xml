@@ -24,15 +24,12 @@
     <string name="back">POWRÓT</string>
     <string name="cards">Karty:</string>
     <string name="end_game">Zakończ grę</string>
-    <string name="background_music">Muzyka w tle</string>
     <string name="sounds">Dźwięki</string>
     <string name="english">English</string>
     <string name="polski">Polski</string>
     <string name="langGroupHeader">Język:</string>
     <string name="rate_this_app">Oceń aplikację</string>
     <string name="restart_game">Gra od nowa</string>
-    <string name="background_music_is_on">Włączono muzykę w tle.</string>
-    <string name="background_music_is_off">Muzyka w tle została wyłączona.</string>
     <string name="sounds_on">Włączono dźwięki w grze.</string>
     <string name="sounds_off">Wyciszono dźwięki w grze.</string>
     <string name="want_to_play_with">Wybierz, z kim chcesz grać:</string>
@@ -44,4 +41,10 @@
     <string name="player_name_error">Imię gracza musi zawierać przynajmniej jedną literę i składać się od 1 do 10 znaków.</string>
     <string name="finish_the_game">\tCzy na pewno chcesz\nzakończyć rozgrywkę?</string>
     <string name="restart_the_game">\tCzy na pewno chcesz\nrozpocząć grę od nowa?</string>
+    <string name="p2CardDesc">Karta używana przez drugiego gracza.</string>
+    <string name="p1CardDesc">Karta używana przez pierwszego gracza.</string>
+    <string name="p1WarCard1Desc">Pierwsza karta używana podczasj wojny przez pierwszego gracza.</string>
+    <string name="p1WarCard2Desc">Druga karta używana podczasj wojny przez pierwszego gracza.</string>
+    <string name="p2WarCard1Desc">Pierwsza karta używana podczasj wojny przez drugiego gracza.</string>
+    <string name="p2WarCard2Desc">Druga karta używana podczasj wojny przez drugiego gracza.</string>
 </resources>

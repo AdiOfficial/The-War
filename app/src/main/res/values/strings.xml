@@ -25,15 +25,12 @@
     <string name="back">BACK</string>
     <string name="cards">Cards:</string>
     <string name="end_game">End the game</string>
-    <string name="background_music">Background music</string>
     <string name="sounds">Sounds</string>
     <string name="english">English</string>
     <string name="polski">Polski</string>
     <string name="langGroupHeader">Language:</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="restart_game">Restart the game</string>
-    <string name="background_music_is_on">Background music is on.</string>
-    <string name="background_music_is_off">Background music is off.</string>
     <string name="sounds_on">The sounds in the game have been turned on.</string>
     <string name="sounds_off">The sounds in the game have been muted.</string>
     <string name="want_to_play_with">Choose who you want to play with:</string>
@@ -45,4 +42,10 @@
     <string name="player_name_error">The player\'s name must contain at least one letter and from 1 to 10 characters.</string>
     <string name="finish_the_game">\tAre you sure you want\n\tto finish the game?</string>
     <string name="restart_the_game">\tAre you sure you want\n\tto restart the game?</string>
+    <string name="p2CardDesc">A card for second player.</string>
+    <string name="p1CardDesc">A card for first player.</string>
+    <string name="p1WarCard1Desc">A first war card for first player.</string>
+    <string name="p1WarCard2Desc">A second war card for first player.</string>
+    <string name="p2WarCard1Desc">A first war card for second player.</string>
+    <string name="p2WarCard2Desc">A second war card for second player.</string>
 </resources>

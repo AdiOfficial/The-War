@@ -31,3 +31,4 @@ enum class Rank(var id: Int) {
         }
     }
 }
+

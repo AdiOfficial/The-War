@@ -17,8 +17,8 @@ class Card {
     var player2WarRank2: Rank? = null
     var player1WarSuit1: Suit? = null
     var player2WarSuit1: Suit? = null
-    var player1WarSuit2: Suit? = null
-    var player2WarSuit2: Suit? = null
+    private var player1WarSuit2: Suit? = null
+    private var player2WarSuit2: Suit? = null
     private var warIsStarting: Boolean = false
     private var rankId: Int = 0
 
