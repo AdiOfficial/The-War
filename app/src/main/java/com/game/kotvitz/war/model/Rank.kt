@@ -1,5 +1,7 @@
 package com.game.kotvitz.war.model
 
+import android.util.SparseArray
+
 enum class Rank(var id: Int) {
     ACE(14),
     KING(13),
@@ -18,16 +20,16 @@ enum class Rank(var id: Int) {
 
     companion object {
 
-        private val map = HashMap<Int, Rank>()
+        private val array = SparseArray<Rank>()
 
         init {
             for (rank in values()) {
-                map[rank.id] = rank
+                array.put(rank.id, rank)
             }
         }
 
         fun getRank(id: Int): Rank? {
-            return map[id]
+            return array[id]
         }
     }
 }

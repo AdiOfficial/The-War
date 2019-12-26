@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -25,8 +25,7 @@ class DialogCreator {
 
     fun displayQuitPopup(context: Context) {
         val popup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.quit_popup, null)
+        val dialogView = View.inflate(context, R.layout.quit_popup, null)
         val yesButton = dialogView.findViewById<Button>(R.id.yesButton)
         yesButton.setOnClickListener {
             gameMedia.playClickSound(context)
@@ -46,8 +45,7 @@ class DialogCreator {
 
     fun displayChooseFirstPlayerPopup(context: Context) {
         val chooseFrstPlrPopup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.choose_first_player_popup, null)
+        val dialogView = View.inflate(context, R.layout.choose_first_player_popup,null)
         firstPlayerName = dialogView.findViewById(R.id.first_player_name)
         val submitButton = dialogView.findViewById<Button>(R.id.buttonSubmit)
         submitButton.setOnClickListener {
@@ -69,8 +67,7 @@ class DialogCreator {
 
     private fun displayChooseSecondPlayerPopup(context: Context) {
         val chooseScndPlrPopup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.choose_second_player_popup, null)
+        val dialogView = View.inflate(context, R.layout.choose_second_player_popup, null)
         secondPlayerName = dialogView.findViewById(R.id.second_player_name)
         chooseScndPlrPopup.setOnDismissListener { gameCreator.prepareBoard(context) }
         val sumbitButton = dialogView.findViewById<Button>(R.id.buttonSubmit2)
@@ -94,8 +91,7 @@ class DialogCreator {
 
     fun finishGamePopup(context: Context) {
         val finishGamePopup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.finish_game_popup, null)
+        val dialogView = View.inflate(context, R.layout.finish_game_popup, null)
         val yesButton = dialogView.findViewById<Button>(R.id.yesButton2)
         yesButton.setOnClickListener {
             gameMedia.playClickSound(context)
@@ -115,8 +111,7 @@ class DialogCreator {
 
     fun restartGamePopup(context: Context) {
         val restartGamePopup = AlertDialog.Builder(context).create()
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val dialogView = inflater.inflate(R.layout.restart_game_popup, null)
+        val dialogView = View.inflate(context, R.layout.restart_game_popup, null)
         val yesButton = dialogView.findViewById<Button>(R.id.yesButton3)
         yesButton.setOnClickListener {
             gameMedia.playClickSound(context)
