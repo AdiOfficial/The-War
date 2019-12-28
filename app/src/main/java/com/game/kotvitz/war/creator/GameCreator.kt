@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.R
 import com.game.kotvitz.war.model.Card
 import java.io.BufferedInputStream
@@ -27,6 +28,7 @@ class GameCreator {
     private var player2Name: TextView? = null
     private var backBitmap: Bitmap? = null
     private var back: BufferedInputStream? = null
+    private val gameMedia = GameMedia()
     private lateinit var player1drawButton: Button
     private lateinit var player2drawButton: Button
     private lateinit var player1drawWar1Button: Button
@@ -82,11 +84,13 @@ class GameCreator {
             player2drawWar2Button.text = player2Name!!.text
 
             player1drawButton.setOnClickListener {
+                gameMedia.playCardPlaceSound(context)
                 card!!.drawCardForFirstPlayer(0)
                 val p1 = card!!.player1Rank!!.id.toString() + card!!.player1Suit!!.name
                 setFirstPlayerCardTexture(context, p1, null, null)
             }
             player2drawButton.setOnClickListener {
+                gameMedia.playCardPlaceSound(context)
                 card!!.drawCardForSecondPlayer(0)
                 val p2 = card!!.player2Rank!!.id.toString() + card!!.player2Suit!!.name
                 setSecondPlayerCardTexture(context, p2, null, null)
@@ -143,6 +147,7 @@ class GameCreator {
                 player1drawButton.visibility = View.INVISIBLE
                 player2drawButton.visibility = View.VISIBLE
             } else if (p1War != null && p1War2 == null) {
+                gameMedia.playCardSlideSound(context)
                 player1WarCard1!!.visibility = View.VISIBLE
                 player1WarCard2!!.visibility = View.INVISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
@@ -153,6 +158,7 @@ class GameCreator {
                 player1drawButton.visibility = View.INVISIBLE
                 player2drawButton.visibility = View.VISIBLE
             } else if (p1War != null && p1War2 != null) {
+                gameMedia.playCardSlideSound(context)
                 player1WarCard1!!.visibility = View.VISIBLE
                 player1WarCard2!!.visibility = View.VISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)

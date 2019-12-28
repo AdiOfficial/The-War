@@ -14,4 +14,14 @@ class GameMedia {
         val mp = MediaPlayer.create(context, R.raw.switchie)
         mp.start()
     }
+
+    fun playCardSlideSound(context: Context) {
+        val mp = MediaPlayer.create(context, R.raw.card_slide)
+        mp.start()
+    }
+
+    fun playCardPlaceSound(context: Context) {
+        val mp = MediaPlayer.create(context, R.raw.card_place)
+        mp.start()
+    }
 }
