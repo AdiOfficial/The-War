@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -36,11 +37,14 @@ class GameCreator {
     private lateinit var player1drawWar2Button: Button
     private lateinit var player2drawWar2Button: Button
     private var card: Card? = null
+    companion object {
+        const val backCardFilename = "back.png"
+    }
 
     fun prepareBoard(context: Context) {
         val assetManager = context.assets
         try {
-            back = BufferedInputStream(assetManager.open("back.png"))
+            back = BufferedInputStream(assetManager.open(backCardFilename))
             backBitmap = BitmapFactory.decodeStream(back)
 
             card = Card()
@@ -85,17 +89,24 @@ class GameCreator {
 
             player1drawButton.setOnClickListener {
                 gameMedia.playCardPlaceSound(context)
-                card!!.drawCardForFirstPlayer(0)
+                card!!.drawCardForFirstPlayer()
                 val p1 = card!!.player1Rank!!.id.toString() + card!!.player1Suit!!.name
-                setFirstPlayerCardTexture(context, p1, null, null)
+                setFirstPlayerCardTexture(context, "$p1.png", null, null)
             }
             player2drawButton.setOnClickListener {
                 gameMedia.playCardPlaceSound(context)
-                card!!.drawCardForSecondPlayer(0)
+                card!!.drawCardForSecondPlayer()
                 val p2 = card!!.player2Rank!!.id.toString() + card!!.player2Suit!!.name
-                setSecondPlayerCardTexture(context, p2, null, null)
+                setSecondPlayerCardTexture(context, "$p2.png", null, null)
                 card!!.compareCards()
                 updateGameState(card!!, context)
+                player1drawButton.isEnabled = false
+                Handler().postDelayed(
+                        {
+                            setFirstPlayerCardTexture(context, backCardFilename, null, null)
+                            setSecondPlayerCardTexture(context, backCardFilename, null, null)
+                            player1drawButton.isEnabled = true
+                        }, 3000L)
             }
         } catch (e: IOException) {
             e.printStackTrace()
@@ -111,34 +122,31 @@ class GameCreator {
         val p1War2: String?
         val p2War: String?
         val p2War2: String?
-        if(card.player1Rank == card.player2Rank) {
-            if(card.player1WarRank1 == card.player1WarRank2) {
+        if (card.player1Rank == card.player2Rank) {
+            if (card.player1WarRank1 == card.player1WarRank2) {
                 p1War = card.player1WarRank1!!.id.toString() + card.player1WarSuit1!!.name
                 p1War2 = card.player1WarRank2!!.id.toString() + card.player1WarRank2!!.name
                 p2War = card.player2WarRank1!!.id.toString() + card.player2WarSuit1!!.name
                 p2War2 = card.player2WarRank2!!.id.toString() + card.player2WarRank2!!.name
-                setFirstPlayerCardTexture(context, p1, p1War, p1War2)
-                setSecondPlayerCardTexture(context, p2, p2War, p2War2)
+                setFirstPlayerCardTexture(context, "$p1.png", "$p1War.png", "$p1War2.png")
+                setSecondPlayerCardTexture(context, "$p2.png", "$p2War.png", "$p2War2.png")
             } else {
                 p1War = card.player1WarRank1!!.id.toString() + card.player1WarSuit1!!.name
                 p2War = card.player2WarRank1!!.id.toString() + card.player2WarSuit1!!.name
-                setFirstPlayerCardTexture(context, p1, p1War, null)
-                setSecondPlayerCardTexture(context, p2, p2War, null)
+                setFirstPlayerCardTexture(context, "$p1.png", "$p1War.png", null)
+                setSecondPlayerCardTexture(context, "$p2.png", "$p2War.png", null)
             }
-        } else {
-            setFirstPlayerCardTexture(context, p1, null, null)
-            setSecondPlayerCardTexture(context, p2, null, null)
         }
     }
 
-    private fun setFirstPlayerCardTexture( context: Context, p1: String?, p1War: String?, p1War2: String?) {
+    private fun setFirstPlayerCardTexture(context: Context, p1: String?, p1War: String?, p1War2: String?) {
         val assets = context.assets
         val inputStream1: BufferedInputStream
         val inputStream2: BufferedInputStream
         val inputStream3: BufferedInputStream
         var bitmap: Bitmap?
         try {
-            inputStream1 = BufferedInputStream(assets.open("$p1.png"))
+            inputStream1 = BufferedInputStream(assets.open("$p1"))
             if (p1War == null && p1War2 == null) {
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player1WarCard1!!.visibility = View.INVISIBLE
@@ -152,7 +160,7 @@ class GameCreator {
                 player1WarCard2!!.visibility = View.INVISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player1Card!!.setImageBitmap(bitmap)
-                inputStream2 = BufferedInputStream(assets.open("$p1War.png"))
+                inputStream2 = BufferedInputStream(assets.open("$p1War"))
                 bitmap = BitmapFactory.decodeStream(inputStream2)
                 player1WarCard1!!.setImageBitmap(bitmap)
                 player1drawButton.visibility = View.INVISIBLE
@@ -163,10 +171,10 @@ class GameCreator {
                 player1WarCard2!!.visibility = View.VISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player1Card!!.setImageBitmap(bitmap)
-                inputStream2 = BufferedInputStream(assets.open("$p1War.png"))
+                inputStream2 = BufferedInputStream(assets.open("$p1War"))
                 bitmap = BitmapFactory.decodeStream(inputStream2)
                 player1WarCard1!!.setImageBitmap(bitmap)
-                inputStream3 = BufferedInputStream(assets.open("$p1War2.png"))
+                inputStream3 = BufferedInputStream(assets.open("$p1War2"))
                 bitmap = BitmapFactory.decodeStream(inputStream3)
                 player1WarCard2!!.setImageBitmap(bitmap)
                 player1drawButton.visibility = View.INVISIBLE
@@ -184,7 +192,7 @@ class GameCreator {
         val inputStream3: BufferedInputStream
         var bitmap: Bitmap?
         try {
-            inputStream1 = BufferedInputStream(assets.open("$p2.png"))
+            inputStream1 = BufferedInputStream(assets.open("$p2"))
             if (p2War == null && p2War2 == null) {
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player1WarCard1!!.visibility = View.INVISIBLE
@@ -197,7 +205,7 @@ class GameCreator {
                 player2WarCard2!!.visibility = View.INVISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player2Card!!.setImageBitmap(bitmap)
-                inputStream2 = BufferedInputStream(assets.open("$p2War.png"))
+                inputStream2 = BufferedInputStream(assets.open("$p2War"))
                 bitmap = BitmapFactory.decodeStream(inputStream2)
                 player2WarCard1!!.setImageBitmap(bitmap)
                 player1drawButton.visibility = View.VISIBLE
@@ -207,10 +215,10 @@ class GameCreator {
                 player2WarCard2!!.visibility = View.VISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
                 player2Card!!.setImageBitmap(bitmap)
-                inputStream2 = BufferedInputStream(assets.open("$p2War.png"))
+                inputStream2 = BufferedInputStream(assets.open("$p2War"))
                 bitmap = BitmapFactory.decodeStream(inputStream2)
                 player2WarCard1!!.setImageBitmap(bitmap)
-                inputStream3 = BufferedInputStream(assets.open("$p2War2.png"))
+                inputStream3 = BufferedInputStream(assets.open("$p2War2"))
                 bitmap = BitmapFactory.decodeStream(inputStream3)
                 player2WarCard2!!.setImageBitmap(bitmap)
                 player1drawButton.visibility = View.VISIBLE

@@ -62,14 +62,14 @@ class Card {
         player2Deck = ArrayList(wholeDeck.subList(26, 52))
     }
 
-    fun drawCardForFirstPlayer(cardId: Int) {
-        player1Rank = player1Deck!![cardId].rank
-        player1Suit = player1Deck!![cardId].suit
+    fun drawCardForFirstPlayer() {
+        player1Rank = player1Deck!![0].rank
+        player1Suit = player1Deck!![0].suit
     }
 
-    fun drawCardForSecondPlayer(cardId: Int) {
-        player2Rank = player2Deck!![cardId].rank
-        player2Suit = player2Deck!![cardId].suit
+    fun drawCardForSecondPlayer() {
+        player2Rank = player2Deck!![0].rank
+        player2Suit = player2Deck!![0].suit
     }
 
     fun compareCards() {
