@@ -85,13 +85,13 @@ class GameCreator {
 
             player1drawButton.setOnClickListener {
                 gameMedia.playCardPlaceSound(context)
-                card!!.drawCardForFirstPlayer(0)
+                card!!.drawCardForFirstPlayer()
                 val p1 = card!!.player1Rank!!.id.toString() + card!!.player1Suit!!.name
                 setFirstPlayerCardTexture(context, p1, null, null)
             }
             player2drawButton.setOnClickListener {
                 gameMedia.playCardPlaceSound(context)
-                card!!.drawCardForSecondPlayer(0)
+                card!!.drawCardForSecondPlayer()
                 val p2 = card!!.player2Rank!!.id.toString() + card!!.player2Suit!!.name
                 setSecondPlayerCardTexture(context, p2, null, null)
                 card!!.compareCards()
