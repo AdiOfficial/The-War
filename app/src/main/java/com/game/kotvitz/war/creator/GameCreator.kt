@@ -100,13 +100,13 @@ class GameCreator {
                 setSecondPlayerCardTexture(context, "$p2.png", null, null)
                 card!!.compareCards()
                 updateGameState(card!!, context)
-                player1drawButton.isEnabled = false
+                player1drawButton.visibility = View.INVISIBLE
                 Handler().postDelayed(
                         {
                             setFirstPlayerCardTexture(context, backCardFilename, null, null)
                             setSecondPlayerCardTexture(context, backCardFilename, null, null)
-                            player1drawButton.isEnabled = true
-                        }, 3000L)
+                            player1drawButton.visibility = View.VISIBLE
+                        }, 2500L)
             }
         } catch (e: IOException) {
             e.printStackTrace()
