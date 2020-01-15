@@ -12,7 +12,6 @@ import android.widget.Switch
 import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.LocaleManager
 import com.game.kotvitz.war.R
-import com.game.kotvitz.war.ScreenDesigner
 
 class OptionsAcitvity : AppCompatActivity() {
 
@@ -26,7 +25,6 @@ class OptionsAcitvity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_options)
-        ScreenDesigner.callFullScreenMode(window)
         volumeControlStream = AudioManager.STREAM_MUSIC
         audio = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         soundsSwitch = findViewById(R.id.soundsSwitch)

@@ -9,7 +9,6 @@ import android.widget.ImageView
 import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.LocaleManager
 import com.game.kotvitz.war.R
-import com.game.kotvitz.war.ScreenDesigner
 
 
 class LanguageChoice : AppCompatActivity() {
@@ -19,7 +18,6 @@ class LanguageChoice : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.language_choice)
-        ScreenDesigner.callFullScreenMode(window)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val langEn = findViewById<ImageView>(R.id.langEn)
         val mainMenu = Intent(this, MainMenuActivity::class.java)

@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.TextView
 import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.R
-import com.game.kotvitz.war.ScreenDesigner
 import com.game.kotvitz.war.creator.DialogCreator
 import java.util.*
 
@@ -27,7 +26,6 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-        ScreenDesigner.callFullScreenMode(window)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val gameToolbar = findViewById<Toolbar>(R.id.gameToolbar)
         setSupportActionBar(gameToolbar)

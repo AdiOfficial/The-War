@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Button
 import com.game.kotvitz.war.GameMedia
 import com.game.kotvitz.war.R
-import com.game.kotvitz.war.ScreenDesigner
 import com.game.kotvitz.war.creator.DialogCreator
 
 class MainMenuActivity : AppCompatActivity() {
@@ -19,7 +18,6 @@ class MainMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_menu)
-        ScreenDesigner.callFullScreenMode(window)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val startGameButton = findViewById<Button>(R.id.startGameButton)
         startGameButton.setOnClickListener {

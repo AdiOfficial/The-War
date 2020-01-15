@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-
 import com.game.kotvitz.war.R
-import com.game.kotvitz.war.ScreenDesigner
 
 class SplashScreenActivity : AppCompatActivity() {
     private val handler = Handler()
@@ -15,7 +13,6 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
-        ScreenDesigner.callFullScreenMode(window)
         val languageChoice = Intent(this, LanguageChoice::class.java)
         handler.postDelayed({
             finish()
