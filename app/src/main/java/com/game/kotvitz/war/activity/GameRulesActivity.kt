@@ -12,17 +12,18 @@ import com.game.kotvitz.war.R
 
 class GameRulesActivity : AppCompatActivity() {
 
-    private val gameMedia = GameMedia()
+    private lateinit var gameMedia: GameMedia
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_rules)
+        gameMedia = GameMedia(this)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val rulesText = findViewById<TextView>(R.id.rulesText)
         rulesText.movementMethod = ScrollingMovementMethod()
         val backButton = findViewById<Button>(R.id.backButtonRules)
         backButton.setOnClickListener {
-            gameMedia.playClickSound(baseContext)
+            gameMedia.playClickSound()
             onBackPressed()
         }
     }

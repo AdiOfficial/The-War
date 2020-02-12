@@ -15,7 +15,7 @@ import com.game.kotvitz.war.model.Card
 import java.io.BufferedInputStream
 import java.io.IOException
 
-class GameCreator {
+class GameCreator(private val context: Context) {
 
     private var player1Card: ImageView? = null
     private var player2Card: ImageView? = null
@@ -29,7 +29,7 @@ class GameCreator {
     private var player2Name: TextView? = null
     private var backBitmap: Bitmap? = null
     private var back: BufferedInputStream? = null
-    private val gameMedia = GameMedia()
+    private val gameMedia = GameMedia(context)
     private lateinit var player1drawButton: Button
     private lateinit var player2drawButton: Button
     private lateinit var player1drawWar1Button: Button
@@ -41,7 +41,7 @@ class GameCreator {
         const val backCardFilename = "back.png"
     }
 
-    fun prepareBoard(context: Context) {
+    fun prepareBoard() {
         val assetManager = context.assets
         try {
             back = BufferedInputStream(assetManager.open(backCardFilename))
@@ -88,13 +88,13 @@ class GameCreator {
             player2drawWar2Button.text = player2Name!!.text
 
             player1drawButton.setOnClickListener {
-                gameMedia.playCardPlaceSound(context)
+                gameMedia.playCardPlaceSound()
                 card!!.drawCardForFirstPlayer()
                 val p1 = card!!.player1Rank!!.id.toString() + card!!.player1Suit!!.name
                 setFirstPlayerCardTexture(context, "$p1.png", null, null)
             }
             player2drawButton.setOnClickListener {
-                gameMedia.playCardPlaceSound(context)
+                gameMedia.playCardPlaceSound()
                 card!!.drawCardForSecondPlayer()
                 val p2 = card!!.player2Rank!!.id.toString() + card!!.player2Suit!!.name
                 setSecondPlayerCardTexture(context, "$p2.png", null, null)
@@ -111,6 +111,24 @@ class GameCreator {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+    private fun preparePlayerCards() {
+        player1Card = (context as Activity).findViewById(R.id.player1Card)
+        player1Card!!.setImageBitmap(backBitmap)
+
+        player2Card = context.findViewById(R.id.player2Card)
+        player2Card!!.setImageBitmap(backBitmap)
+
+        player1WarCard1 = context.findViewById(R.id.player1WarCard1)
+        player2WarCard1 = context.findViewById(R.id.player2WarCard1)
+        player1WarCard2 = context.findViewById(R.id.player1WarCard2)
+        player2WarCard2 = context.findViewById(R.id.player2WarCard2)
+
+        player1CardsNumber = context.findViewById(R.id.player1CardsNumber)
+        player1CardsNumber!!.text = card!!.player1Deck!!.size.toString()
+        player2CardsNumber = context.findViewById(R.id.player2CardsNumber)
+        player2CardsNumber!!.text = card!!.player2Deck!!.size.toString()
     }
 
     private fun updateGameState(card: Card, context: Context) {
@@ -155,7 +173,7 @@ class GameCreator {
                 player1drawButton.visibility = View.INVISIBLE
                 player2drawButton.visibility = View.VISIBLE
             } else if (p1War != null && p1War2 == null) {
-                gameMedia.playCardSlideSound(context)
+                gameMedia.playCardSlideSound()
                 player1WarCard1!!.visibility = View.VISIBLE
                 player1WarCard2!!.visibility = View.INVISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)
@@ -166,7 +184,7 @@ class GameCreator {
                 player1drawButton.visibility = View.INVISIBLE
                 player2drawButton.visibility = View.VISIBLE
             } else if (p1War != null && p1War2 != null) {
-                gameMedia.playCardSlideSound(context)
+                gameMedia.playCardSlideSound()
                 player1WarCard1!!.visibility = View.VISIBLE
                 player1WarCard2!!.visibility = View.VISIBLE
                 bitmap = BitmapFactory.decodeStream(inputStream1)

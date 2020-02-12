@@ -18,21 +18,22 @@ import java.util.*
 
 class GameActivity : AppCompatActivity() {
 
-    private val dialogCreator = DialogCreator()
-    private val gameMedia = GameMedia()
+    private lateinit var dialogCreator: DialogCreator
+    private lateinit var gameMedia: GameMedia
     private var player1Name: TextView? = null
     private var player2Name: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        dialogCreator = DialogCreator(this)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val gameToolbar = findViewById<Toolbar>(R.id.gameToolbar)
         setSupportActionBar(gameToolbar)
         player1Name = findViewById(R.id.player1Name)
         player2Name = findViewById(R.id.player2Name)
         Objects.requireNonNull<ActionBar>(supportActionBar).setDisplayShowTitleEnabled(false)
-        Handler().postDelayed({ dialogCreator.displayChooseFirstPlayerPopup(this@GameActivity) }, 100L)
+        Handler().postDelayed({ dialogCreator.displayChooseFirstPlayerPopup() }, 100L)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -42,15 +43,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        dialogCreator = DialogCreator(this)
+        gameMedia = GameMedia(this)
         return when (item.itemId) {
             R.id.restart_game -> {
-                gameMedia.playClickSound(baseContext)
-                dialogCreator.restartGamePopup(this@GameActivity)
+                gameMedia.playClickSound()
+                dialogCreator.restartGamePopup()
                 true
             }
             R.id.end_game -> {
-                gameMedia.playClickSound(baseContext)
-                dialogCreator.finishGamePopup(this@GameActivity)
+                gameMedia.playClickSound()
+                dialogCreator.finishGamePopup()
                 true
             }
             else -> super.onOptionsItemSelected(item)

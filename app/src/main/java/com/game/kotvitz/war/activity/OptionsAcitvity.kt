@@ -20,20 +20,21 @@ class OptionsAcitvity : AppCompatActivity() {
     private var radioEnglish: RadioButton? = null
     private var soundsSwitch: Switch? = null
     private var audio: AudioManager? = null
-    private val gameMedia = GameMedia()
+    private lateinit var gameMedia: GameMedia
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_options)
+        gameMedia = GameMedia(this)
         volumeControlStream = AudioManager.STREAM_MUSIC
         audio = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         soundsSwitch = findViewById(R.id.soundsSwitch)
-        soundsSwitch!!.setOnClickListener { gameMedia.playSwitchSound(baseContext) }
+        soundsSwitch!!.setOnClickListener { gameMedia.playSwitchSound() }
         checkSoundState()
         checkLanguage()
         backButton = findViewById(R.id.backButtonOptions)
         backButton!!.setOnClickListener {
-            gameMedia.playClickSound(baseContext)
+            gameMedia.playClickSound()
             onBackPressed()
         }
         soundsSwitch!!.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -46,7 +47,8 @@ class OptionsAcitvity : AppCompatActivity() {
     }
 
     fun onRadioButtonClicked(view: View) {
-        gameMedia.playClickSound(baseContext)
+        gameMedia = GameMedia(this)
+        gameMedia.playClickSound()
         val checked = (view as RadioButton).isChecked
         when (view.getId()) {
             R.id.pl_lang -> if (checked) {

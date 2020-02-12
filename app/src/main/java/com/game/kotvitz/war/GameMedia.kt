@@ -3,24 +3,24 @@ package com.game.kotvitz.war
 import android.content.Context
 import android.media.MediaPlayer
 
-class GameMedia {
+class GameMedia(private val context: Context) {
 
-    fun playClickSound(context: Context) {
+    fun playClickSound() {
         val mp = MediaPlayer.create(context, R.raw.click)
         mp.start()
     }
 
-    fun playSwitchSound(context: Context) {
+    fun playSwitchSound() {
         val mp = MediaPlayer.create(context, R.raw.switchie)
         mp.start()
     }
 
-    fun playCardSlideSound(context: Context) {
+    fun playCardSlideSound() {
         val mp = MediaPlayer.create(context, R.raw.card_slide)
         mp.start()
     }
 
-    fun playCardPlaceSound(context: Context) {
+    fun playCardPlaceSound() {
         val mp = MediaPlayer.create(context, R.raw.card_place)
         mp.start()
     }

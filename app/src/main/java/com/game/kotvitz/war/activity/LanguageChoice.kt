@@ -13,29 +13,31 @@ import com.game.kotvitz.war.R
 
 class LanguageChoice : AppCompatActivity() {
 
-    private val gameMedia = GameMedia()
+    private lateinit var gameMedia: GameMedia
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.language_choice)
+        gameMedia = GameMedia(this)
         volumeControlStream = AudioManager.STREAM_MUSIC
         val langEn = findViewById<ImageView>(R.id.langEn)
         val mainMenu = Intent(this, MainMenuActivity::class.java)
         langEn.setOnClickListener {
-            gameMedia.playClickSound(baseContext)
+            gameMedia.playClickSound()
             LocaleManager.setLocale("en-us", mainMenu, resources)
             startActivity(mainMenu)
         }
         val langPol = findViewById<ImageView>(R.id.langPol)
         langPol.setOnClickListener {
-            gameMedia.playClickSound(baseContext)
+            gameMedia.playClickSound()
             LocaleManager.setLocale("pl", mainMenu, resources)
             startActivity(mainMenu)
         }
     }
 
     override fun onBackPressed() {
-        gameMedia.playClickSound(baseContext)
+        gameMedia = GameMedia(baseContext)
+        gameMedia.playClickSound()
         moveTaskToBack(true)
     }
 
